@@ -1,0 +1,64 @@
+# --- Python / Backend ---
+# โฟลเดอร์เสมือนจริง (Virtual Environment)
+venv/
+env/
+.venv/
+ENV/
+
+# ไฟล์ Byte-code ของ Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# ฐานข้อมูล SQLite (ถ้ามีใช้)
+*.db
+*.sqlite3
+
+# ไฟล์ Environment Variables (สำคัญมาก! ห้ามลืม)
+.env
+.env.local
+.env.production
+
+# โฟลเดอร์โมเดล ML ขนาดใหญ่ (ถ้ามีเก็บไว้ในเครื่อง)
+models/
+*.pth
+*.h5
+*.bin
+
+# Log files
+*.log
+
+# IDE Settings (VS Code, PyCharm)
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- Node.js / React Frontend ---
+# โฟลเดอร์ dependencies (ขนาดใหญ่ ไม่ต้องอัป)
+node_modules/
+
+# ไฟล์ Build ที่ compile แล้ว (เดี๋ยว CI/CD หรือคนโหลดไปรันเองจะสร้างใหม่ได้)
+build/
+dist/
+.out
+
+# การตั้งค่า TypeScript ที่สร้างอัตโนมัติ
+tsconfig.tsbuildinfo
+
+# npm debug log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# macOS system files (มักโผล่มาโดยไม่รู้ตัว)
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows thumbnail cache
+Thumbs.db
+config.py 
+.env 
