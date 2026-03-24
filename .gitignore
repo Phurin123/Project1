@@ -60,5 +60,4 @@ yarn-error.log*
 
 # Windows thumbnail cache
 Thumbs.db
-config.py 
 .env 
