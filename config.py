@@ -56,3 +56,24 @@ def init_db():
         print("✅ Database initialized.")
     except Exception as e:
         print(f"❌ DB Init Error: {e}")
+        
+def cleanup_old_data(days_to_keep=7):
+    """ลบข้อมูลที่เก่าเกินกว่าที่กำหนด (ค่าเริ่มต้นเก็บไว้ 7 วัน)"""
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        
+        # ลบข้อมูลที่ created_at เก่ากว่า X วัน
+        sql = f"DELETE FROM daily_analysis WHERE analyzed_at < NOW() - INTERVAL {days_to_keep} DAY"
+        cursor.execute(sql)
+        conn.commit()
+        
+        deleted_rows = cursor.rowcount
+        if deleted_rows > 0:
+            print(f"🧹 ลบข้อมูลเก่าแล้ว {deleted_rows} รายการ (เก็บไว้แค่ {days_to_keep} วัน)")
+        
+        cursor.close()
+        conn.close()
+    except Exception as e:
+        print(f"Error cleaning up data: {e}")
+

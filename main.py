@@ -4,9 +4,10 @@ import threading
 import time
 from datetime import datetime
 
-from config import get_db_connection, init_db
+from config import get_db_connection, init_db, cleanup_old_data
 from scanner import get_top_movers
 from analyze import analyze_stock_deep
+
 
 app = FastAPI()
 
@@ -25,6 +26,8 @@ init_db()
 
 def process_market_smart():
     print("--- 🚀 Starting Smart Market Scan ---")
+    
+    cleanup_old_data(days_to_keep=7)
 
     # 1. คัดกรองหา Top Movers (จาก scanner.py)
     target_tickers = get_top_movers(top_n=20)
